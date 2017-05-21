@@ -4,6 +4,8 @@ This package makes random passwords with fast logic described in [this link][].
 
 [this link]: http://stackoverflow.com/questions/22892120/how-to-generate-a-random-string-of-a-fixed-length-in-golang
 
+The original logic is NOT goroutine safe because it shares `rand.Source` and the `Int63()` calls conflict. The logic in this package is using `sync.Mutex` to solve this.
+
 ```go
 package main
 
