@@ -12,3 +12,7 @@ test: ## Run tests only
 test-coverage: ## Run tests and show coverage in browser
 	go test -v -coverprofile=$(COVERAGE) -covermode=count
 	go tool cover -html=$(COVERAGE)
+
+benchmark: ## Do benchmarks
+	go version
+	go test -bench . -benchmem
